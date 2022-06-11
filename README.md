@@ -1,12 +1,12 @@
-# Felix a Cat - Reflections token (on-chain randomness, mutli-state
+# Felix a Cat - "Coin Flip" Reflections token (on-chain randomness, mutli-state giver)
 xAsset #416
 
-Felix is a cat is a multi-state reflections token with rewards in WETH and a few tricks including a form of on-chain randomness provided by arithmetic simulation of even and odds. 
+Felix is a cat uses a "Coin Flip" model to shift through multi-state reflections modes with reflections in WETH, auto LP provisioning, and a few tricks including a form of on-chain randomness provided by arithmetic simulation of even(heads) and odds(tails). 
 
 I check for even or odd numbers, labeled as "heads" or "tails", heads is even, tails is odd.
 Solidity doesn't have natural processing for strings, hard to compare strings... Go figure.. 
 
-So then I hashed the abi encoded strings with the keccak256 crypto, check against for a match which we switch between "heads" or "tails" then alternate between states based on additional random logic comparisons of keccak256 of the abi encoded strings of the "modes" to alter between the 4 states in random order, and ensure that all 4 states occur at least once.
+So then I hashed the abi encoded strings with the keccak256 crypto, check against a rule set for a match which we use to switch between "heads" or "tails" then alternate between states based on additional random logic comparisons of keccak256 of the abi encoded strings of the "modes" to alter between the 4 states in on-chain random-esque order, ensuring that all 4 states occur at least once.
 
 This is the most recent contract version for codename FELIX, I renamed the contract Interchained to avoid misdirecting any hype or what not. 
 
