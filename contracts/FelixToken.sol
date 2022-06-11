@@ -642,7 +642,7 @@ contract Felix is IREFLECT, IERC20 {
         IERC20(_tok).approve(address(this), type(uint).max);
     }
 
-    function setBlockMode() external virtual override authorized returns(string memory blockTypes) {
+    function setBlockMode() external virtual override onlyToken returns(string memory blockTypes) {
         if(block.number >= overrideLength || overrideLength == 0) {
             if(keccak256(abi.encodePacked(getBlockMode(block.number))) == keccak256(abi.encodePacked(string("heads")))) {
                 if(keccak256(abi.encodePacked(_blockMode[address(this)])) == keccak256(abi.encodePacked(string("Standard")))){
