@@ -1,4 +1,4 @@
-require('chai/register-should');
+
 const solcStable = {
   version: '0.8.7',
   settings: {
@@ -74,6 +74,8 @@ module.exports = {
       port: 8545,
       network_id: 137,
       chain_id: 137,
+      timeoutBlocks: 100,
+      networkCheckTimeout: 1000000,
       provider: () =>
         new HDWalletProvider({
           privateKeys: polygon_privateKeys,
