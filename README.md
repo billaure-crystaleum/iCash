@@ -35,14 +35,12 @@ A Pair is created at the router supplied upon contract construction (deployment)
 
 To launch contract run the following functions to make it easy:
 
-No params for these 2 functions just approvals, and launch
+No params for the #1 & #2 functions just approvals, and launch. 
+For #3 use the pair address from UNI/Quick
+Fpr #4 use true for enabled, and (amount * (10**_decimals) for _amount
 1) approveWETH()
 2) launch()
-
-use the pair address from UNI/Quick
 3) setAMMPair(address marketPair)
-
-use true for enabled, and (amount * (10**_decimals) for _amount
 4) setLiquifySettings(bool _enabled, uint256 _amount)
 
 Testing:
