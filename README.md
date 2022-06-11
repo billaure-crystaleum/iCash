@@ -16,6 +16,43 @@ The code is mostly functional, and randomness is achieved on-chain for one of if
 I want you to know I worked very hard on this, and contributed many hours over recent days. 
 I included a test bot script with ethersJs and nodeJs. I will complete the bot, it's purely for development at this point, the next stage of the bot will take it to return animations on events / calls to contract. This contract took a lot of work. I am proud of what we have achieved here, perhaps this could be a million dollar contract! Or 100 million! 
 
+
+## Deployment
+To deploy, check all the variables in constructor (prepared for polygon).
+Add infura keys to the truffle-config, and load up a *.pk for the network you're deploying on. 
+Ensure all details are correct in truffle-config.
+for example;
+npx truffle console --network polygon
+then inside truffle console: migrate
+
+Post-deployment 
+Verify: truffle run verify ContractName@0xCONTRACTADDRESS
+This assumes you published a polygonscan or etherscan API key to the truffle-config *(get yours from etherscan or polygonscan by registering an account)
+
+Post-verification
+Most configurables are pre-initialized in contructor. 
+A Pair is created at the router supplied upon contract construction (deployment). Get the address from Read tab on etherscan/polygonscan. Look for pair. That is marketPair needed for setAMMPair() below. Keep reading, it's easy...
+
+To launch contract run the following functions to make it easy:
+
+No params for these 2 functions just approvals, and launch
+1) approveWETH()
+2) launch()
+
+use the pair address from UNI/Quick
+3) setAMMPair(address marketPair)
+
+use true for enabled, and (amount * (10**_decimals) for _amount
+4) setLiquifySettings(bool _enabled, uint256 _amount)
+
+Testing:
+We can test setBlockMode() and see that the checkBlockType() alters with each "flip". 
+Functions are easier to test with the nodejs-telegram-ethersjs bot (a bot skeleton is provided in this repo)
+to activate the bot, talk to telegram Botfather, and get a secret key for your bot. Then export SECRET='TELEGRAM_API_KEY' and node nodeEthers.js to witness bot output getBlockMode() to console.
+
+More research & development to follow! Thanks for reading.
+
+## Collaborations
 If you're interested in collaborating and learning about cryptocurrency development contact Interchained @ https://t.me/interchained
 https://t.me/cryptocurrencydevs
 
