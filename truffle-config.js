@@ -1,6 +1,5 @@
-require('chai/register-should');
 const solcStable = {
-  version: '0.8.3',
+  version: '0.8.5',
   settings: {
     optimizer: {
       enabled: true,
@@ -25,19 +24,9 @@ const solcNightly = {
 const useSolcNightly = process.env.SOLC_NIGHTLY === 'false';
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
-const privateKey = fs.readFileSync(".pk").toString().trim() || "01234567890123456789";
 const ethereum_privateKey = fs.readFileSync("ethereum.pk").toString().trim() || "01234567890123456789";
-const goerli_privateKey = fs.readFileSync("goerli.pk").toString().trim() || "01234567890123456789";
-const polygon_privateKey = fs.readFileSync("poly.pk").toString().trim() || "01234567890123456789";
-const mnemonic = fs.readFileSync(".secret").toString().trim();
 const ethereum_privateKeys = [
   ethereum_privateKey
-];
-const goerli_privateKeys = [
-  goerli_privateKey
-];
-const polygon_privateKeys = [
-  polygon_privateKey
 ];
 module.exports = {  
   networks: {
